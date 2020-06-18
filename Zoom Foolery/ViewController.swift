@@ -15,14 +15,47 @@ class ViewController: UIViewController {
     @IBOutlet weak var image1x: UIImageView!
     @IBOutlet weak var imageZoomed: UIImageView!
     
+//    let coffeeImage = UIImage(named: "coffee")
+    
+    lazy var coffeeImageView: UIImageView = {
+        let imageView = UIImageView()
+        let coffeeImage = UIImage(named: "coffee")
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = coffeeImage
+        return imageView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        imageZoomed.alpha = 0.0
+        loadImage()
         
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(zoom))
-        gestureRecognizer.numberOfTapsRequired = 1
-        view.addGestureRecognizer(gestureRecognizer)
+        //        imageZoomed.alpha = 0.0
+        
+        //        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(zoom))
+        //        gestureRecognizer.numberOfTapsRequired = 1
+        //        view.addGestureRecognizer(gestureRecognizer)
+    }
+    
+    func loadImage() {
+        view.addSubview(coffeeImageView)
+        
+        let w = view.frame.width
+        let h = view.frame.height
+        
+        coffeeImageView.frame = CGRect(x: 0, y: 0, width: w, height: h)
+        
+        NSLayoutConstraint.activate([
+//            coffeeImageView.leadingAnchor.constraint(equalTo: view.readableContentGuide.leadingAnchor),
+//            coffeeImageView.trailingAnchor.constraint(equalTo: view.readableContentGuide.trailingAnchor),
+            coffeeImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            coffeeImageView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+//            coffeeImageView.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor),
+            coffeeImageView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor)
+        ])
+        
+        print("#loaded image")
+        
     }
     
     @objc func zoom(sender: UITapGestureRecognizer) {
