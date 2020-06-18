@@ -25,28 +25,31 @@ class ViewController: UIViewController {
         view.addGestureRecognizer(gestureRecognizer)
     }
     
-    @objc func zoom() {
-        
-        switch zoomed {
-        case false:
-            // zoom in
+    @objc func zoom(sender: UITapGestureRecognizer) {
+        if sender.state == .ended {
             
-            imageZoomed.transform = view.transform.scaledBy(x: 0.1, y: 0.1)
-            
-            UIView.animate(withDuration: 1.5) {
-                self.imageZoomed.alpha = 1.0
-                self.imageZoomed.transform = CGAffineTransform.identity
+            switch zoomed {
+            case false:
+                // zoom in
+                
+                imageZoomed.transform = view.transform.scaledBy(x: 0.1, y: 0.1)
+                
+                UIView.animate(withDuration: 1.5) {
+                    self.imageZoomed.alpha = 1.0
+                    self.imageZoomed.transform = CGAffineTransform.identity
+                }
+                
+            default:
+                // zoom out
+                
+                UIView.animate(withDuration: 1.5) {
+                    self.imageZoomed.alpha = 0.0
+                    self.imageZoomed.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+                }
             }
             
-        default:
-            // zoom out
-                        
-            UIView.animate(withDuration: 1.5) {
-                self.imageZoomed.alpha = 0.0
-                self.imageZoomed.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
-            }
+            toggleZoom()
         }
-        toggleZoom()
     }
     
     func toggleZoom() {
