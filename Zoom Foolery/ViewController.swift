@@ -31,7 +31,7 @@ class ViewController: UIViewController {
         case false:
             // zoom in
             
-            imageZoomed.transform = view.transform.scaledBy(x: 0.5, y: 0.5)
+            imageZoomed.transform = view.transform.scaledBy(x: 0.1, y: 0.1)
             
             UIView.animate(withDuration: 1.5) {
                 self.imageZoomed.alpha = 1.0
@@ -40,7 +40,11 @@ class ViewController: UIViewController {
             
         default:
             // zoom out
-            imageZoomed.alpha = 0.0
+                        
+            UIView.animate(withDuration: 1.5) {
+                self.imageZoomed.alpha = 0.0
+                self.imageZoomed.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+            }
         }
         toggleZoom()
     }
