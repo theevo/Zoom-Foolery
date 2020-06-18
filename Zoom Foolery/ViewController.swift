@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     lazy var coffeeImageView: UIImageView = {
         let imageView = UIImageView()
         let coffeeImage = UIImage(named: "coffee")
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.image = coffeeImage
         return imageView
     }()
@@ -40,19 +40,27 @@ class ViewController: UIViewController {
     func loadImage() {
         view.addSubview(coffeeImageView)
         
-        let w = view.frame.width
-        let h = view.frame.height
         
-        coffeeImageView.frame = CGRect(x: 0, y: 0, width: w, height: h)
+        
+//        let w = coffeeImageView.image!.size.width
+//        let h = coffeeImageView.image!.size.height
+        
+        
         
         NSLayoutConstraint.activate([
 //            coffeeImageView.leadingAnchor.constraint(equalTo: view.readableContentGuide.leadingAnchor),
 //            coffeeImageView.trailingAnchor.constraint(equalTo: view.readableContentGuide.trailingAnchor),
-            coffeeImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+//            coffeeImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             coffeeImageView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
 //            coffeeImageView.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor),
             coffeeImageView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor)
         ])
+        
+        let w = view.frame.width
+        let h = view.frame.height
+        
+        coffeeImageView.backgroundColor = .brown
+        coffeeImageView.frame = CGRect(x: 0, y: 0, width: w, height: h)
         
         print("#loaded image")
         
