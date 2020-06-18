@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Zoom_Foolery" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="coffee" translatesAutoresizingMaskIntoConstraints="NO" id="6J1-JI-wIF">
+                                <rect key="frame" x="-994.5" y="44" width="2403" height="818"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" image="coffee" translatesAutoresizingMaskIntoConstraints="NO" id="PKn-8r-KeS">
+                                <rect key="frame" x="-414" y="-1347" width="1242" height="3600"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="6J1-JI-wIF" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="4l3-GB-rTB"/>
+                            <constraint firstItem="PKn-8r-KeS" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="w7K-vh-bw9"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="6J1-JI-wIF" secondAttribute="top" id="wFz-P0-TnL"/>
+                            <constraint firstItem="6J1-JI-wIF" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="x9u-TR-RcP"/>
+                            <constraint firstItem="PKn-8r-KeS" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="3" id="xME-5t-szK"/>
+                            <constraint firstItem="PKn-8r-KeS" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="yG9-nO-cgO"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="image1x" destination="6J1-JI-wIF" id="k6a-2u-p3D"/>
+                        <outlet property="imageZoomed" destination="PKn-8r-KeS" id="uhY-HL-aX9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139" y="136"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="coffee" width="2403" height="3600"/>
+    </resources>
+</document>
